@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name="credentialtype",
+            model_name="schema",
             name="schema_label",
             field=django.contrib.postgres.fields.jsonb.JSONField(blank=True, null=True),
         )

@@ -110,11 +110,12 @@ class IssuerManager:
             schema_name = credential_type_def.get("schema")
             schema_version = credential_type_def.get("version")
             schema_publisher_did = issuer.did
-
+            schema_label = credential_type_def.get("labels")
             schema, _ = Schema.objects.get_or_create(
                 name=schema_name,
                 version=schema_version,
                 origin_did=schema_publisher_did,
+                schema_label=schema_label,
             )
             schema.save()
             schemas.append(schema)
@@ -143,10 +144,11 @@ class IssuerManager:
                 "credential_def_id"
             )
             credential_type.url = credential_type_def.get("endpoint")
-            credential_type.highlighted_attributes = credential_type_def.get("highlighted_attributes")
-            credential_type.credential_title = credential_type_def.get("credential_title")
+            credential_type.highlighted_attributes = credential_type_def.get(
+                "highlighted_attributes")
+            credential_type.credential_title = credential_type_def.get(
+                "credential_title")
 
-            credential_type.schema_label = credential_type_def.get("labels")
             visible_fields = credential_type_def.get("visible_fields")
             if isinstance(visible_fields, list):
                 visible_fields = ",".join(

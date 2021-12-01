@@ -39,7 +39,7 @@ def list_related_to_relations(self, request, pk=None):
                 "credential_type": {
                     "id": topic_relationship.credential.credential_type.id,
                     "description": topic_relationship.credential.credential_type.description,
-                    "schema_label": topic_relationship.credential.credential_type.schema_label,
+                    "schema_label": topic_relationship.credential.credential_type.schema.schema_label,
                     "credential_title": topic_relationship.credential.credential_type.credential_title,
                     "highlighted_attributes": topic_relationship.credential.credential_type.highlighted_attributes,
                 },
