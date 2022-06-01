@@ -8,7 +8,7 @@ import requests
 from celery.exceptions import Retry
 # from celery.result import AsyncResult
 from celery.signals import celeryd_after_setup
-from celery.task import Task
+from celery import Task
 from django.conf import settings
 
 from subscriptions.models.Subscription import Subscription
